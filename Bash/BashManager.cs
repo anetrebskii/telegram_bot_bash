@@ -1,12 +1,22 @@
 ﻿using System;
+using System.Threading;
 using HtmlAgilityPack;
 
 namespace Bash
 {
 	public class BashManager
 	{
+#if DEBUG
+		private static readonly TimeSpan UPDATE_MAX_QUOTE_ID_INTERVAL = TimeSpan.FromSeconds(20);
+#else
+		private static readonly TimeSpan UPDATE_MAX_QUOTE_ID_INTERVAL = TimeSpan.FromMinutes(5);
+#endif
+
+		private Timer _timer;
+
 		public BashManager()
 		{
+			_timer = new Timer(updateMaxQuoteId, null, UPDATE_MAX_QUOTE_ID_INTERVAL, UPDATE_MAX_QUOTE_ID_INTERVAL);
 		}
 
 		public int MaxQuoteId
@@ -47,11 +57,24 @@ namespace Bash
 
 		public void UpdateMaxQuoteId()
 		{
-			HtmlWeb web = new HtmlWeb();
-			web.OverrideEncoding = System.Text.Encoding.GetEncoding(1251);
-			HtmlDocument defaultDocument = web.Load($"http://bash.im/");
-			var maxIdNode = defaultDocument.DocumentNode.SelectSingleNode("//a[@class='id']");
-			MaxQuoteId = Int32.Parse(maxIdNode.InnerText.Substring(1));
+			updateMaxQuoteId(null);
+		}
+
+		private void updateMaxQuoteId(object state)
+		{
+			try
+			{
+				_timer.Change(Timeout.Infinite, Timeout.Infinite);
+				HtmlWeb web = new HtmlWeb();
+				web.OverrideEncoding = System.Text.Encoding.GetEncoding(1251);
+				HtmlDocument defaultDocument = web.Load($"http://bash.im/");
+				var maxIdNode = defaultDocument.DocumentNode.SelectSingleNode("//a[@class='id']");
+				MaxQuoteId = Int32.Parse(maxIdNode.InnerText.Substring(1));
+			}
+			finally
+			{
+				_timer.Change(UPDATE_MAX_QUOTE_ID_INTERVAL, UPDATE_MAX_QUOTE_ID_INTERVAL);
+			}
 		}
 	}
 }
