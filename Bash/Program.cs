@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.IO;
 using System.Net;
 using HtmlAgilityPack;
+using System.Globalization;
+using System.Data.Entity.Migrations.Sql;
+using System.Data.Entity.Migrations.Model;
 
 namespace Bash
 {

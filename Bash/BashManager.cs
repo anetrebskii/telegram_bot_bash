@@ -15,7 +15,7 @@ namespace Bash
 			set;
 		}
 
-		public string Read(UserInfo user)
+		public string Read(User user)
 		{
 			HtmlWeb web = new HtmlWeb();
 			web.OverrideEncoding = System.Text.Encoding.GetEncoding(1251);

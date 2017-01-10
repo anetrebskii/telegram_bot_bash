@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bash", "Bash\Bash.csproj", "{129677FF-E2D0-4F77-941A-97C19405E5EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework6.Npgsql", "EntityFramework6.Npgsql\EntityFramework6.Npgsql.csproj", "{3EC85CBA-5B79-11E3-8104-0022198AB089}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{129677FF-E2D0-4F77-941A-97C19405E5EF}.Debug|x86.Build.0 = Debug|x86
 		{129677FF-E2D0-4F77-941A-97C19405E5EF}.Release|x86.ActiveCfg = Release|x86
 		{129677FF-E2D0-4F77-941A-97C19405E5EF}.Release|x86.Build.0 = Release|x86
+		{3EC85CBA-5B79-11E3-8104-0022198AB089}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3EC85CBA-5B79-11E3-8104-0022198AB089}.Debug|x86.Build.0 = Debug|Any CPU
+		{3EC85CBA-5B79-11E3-8104-0022198AB089}.Release|x86.ActiveCfg = Release|Any CPU
+		{3EC85CBA-5B79-11E3-8104-0022198AB089}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

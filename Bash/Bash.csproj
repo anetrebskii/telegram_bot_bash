@@ -46,12 +46,22 @@
       <HintPath>..\packages\Telegram.Bot.10.4.0\lib\net45\Telegram.Bot.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.3.1.0\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BashManager.cs" />
-    <Compile Include="UserInfo.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="UserThrottleSaver.cs" />
     <Compile Include="BotFramework\UserChat.cs" />
     <Compile Include="BotFramework\IState.cs" />
@@ -62,6 +72,7 @@
     <Compile Include="Bot\BashChatInitializer.cs" />
     <Compile Include="Bot\BashState.cs" />
     <Compile Include="Bot\BashRegistry.cs" />
+    <Compile Include="BashDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BotFramework\" />
@@ -69,6 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityFramework6.Npgsql\EntityFramework6.Npgsql.csproj">
+      <Project>{3EC85CBA-5B79-11E3-8104-0022198AB089}</Project>
+      <Name>EntityFramework6.Npgsql</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
