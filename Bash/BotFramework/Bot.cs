@@ -14,7 +14,11 @@ namespace Bash
 {
 	public class Bot
 	{
+#if DEBUG
+		private readonly TelegramBotClient _bot = new TelegramBotClient("310983675:AAEZWcCbM_SptclCgXysVa-x9n1LmO1grYU");
+#else
 		private readonly TelegramBotClient _bot = new TelegramBotClient("321733116:AAG2vUemPvqXt6qJc0pSPTAzoTvB_bC250E");
+#endif
 
 		private IUserChatInitializer _userChatInitializer;
 		private ConcurrentDictionary<long, UserChat> _userChats = new ConcurrentDictionary<long, UserChat>();
