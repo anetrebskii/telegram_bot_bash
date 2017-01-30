@@ -15,9 +15,9 @@ namespace Bash
 	public class Bot
 	{
 #if DEBUG
-		private readonly TelegramBotClient _bot = new TelegramBotClient("310983675:AAEZWcCbM_SptclCgXysVa-x9n1LmO1grYU");
+		private readonly TelegramBotClient _bot = new TelegramBotClient("telegram_id");
 #else
-		private readonly TelegramBotClient _bot = new TelegramBotClient("321733116:AAG2vUemPvqXt6qJc0pSPTAzoTvB_bC250E");
+		private readonly TelegramBotClient _bot = new TelegramBotClient("telegram_id");
 #endif
 
 		private IUserChatInitializer _userChatInitializer;
